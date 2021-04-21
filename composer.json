@@ -1,0 +1,5 @@
+{
+    "name": "liveintent/php-cs-rules",
+    "description": "LiveIntent code style rules for php-cs-fixer",
+    "require": {}
+}
