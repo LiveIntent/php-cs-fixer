@@ -1,6 +1,6 @@
 <?php
 
-namespace LiveIntent;
+namespace LiveIntent\PHPCsRules;
 
 class PHPCsRules
 {
