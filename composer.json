@@ -1,12 +1,12 @@
 {
     "name": "liveintent/php-cs-rules",
     "description": "LiveIntent code style rules for php-cs-fixer",
-    "require": {
-        "friendsofphp/php-cs-fixer": "^2.18"
-    },
     "autoload": {
         "psr-4": {
             "LiveIntent\\PHPCsRules\\": "."
         }
+    },
+    "require": {
+        "friendsofphp/php-cs-fixer": "^3.0"
     }
 }
