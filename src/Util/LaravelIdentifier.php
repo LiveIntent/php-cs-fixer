@@ -65,12 +65,12 @@ class LaravelIdentifier
         return null;
     }
 
-    protected function inDir(string $dir)
+    protected function inDir(string $dir): bool
     {
         return Str::contains($this->file->getPath(), $dir);
     }
 
-    protected function inheritsFrom(string $parent)
+    protected function inheritsFrom(string $parent): bool
     {
         $reflectionClass = $this->class;
 
@@ -85,7 +85,7 @@ class LaravelIdentifier
         return false;
     }
 
-    protected function uses(string $trait)
+    protected function uses(string $trait): bool
     {
         $reflectionClass = $this->class;
 
@@ -100,72 +100,72 @@ class LaravelIdentifier
         return false;
     }
 
-    public function isCommand()
+    public function isCommand(): bool
     {
         return $this->inheritsFrom(\Illuminate\Console\Command::class);
     }
 
-    public function isController()
+    public function isController(): bool
     {
         return $this->inheritsFrom(\Illuminate\Routing\Controller::class);
     }
 
-    public function isEvent()
+    public function isEvent(): bool
     {
         return $this->inDir('Events') && $this->uses(\Illuminate\Foundation\Events\Dispatchable::class);
     }
 
-    public function isException()
+    public function isException(): bool
     {
         return $this->inheritsFrom(\Exception::class);
     }
 
-    public function isFactory()
+    public function isFactory(): bool
     {
         return $this->inheritsFrom(\Illuminate\Database\Eloquent\Factories\Factory::class);
     }
 
-    public function isFormRequest()
+    public function isFormRequest(): bool
     {
         return $this->inheritsFrom(\Illuminate\Foundation\Http\FormRequest::class);
     }
 
-    public function isJob()
+    public function isJob(): bool
     {
         return $this->inDir('Jobs') && $this->class->hasMethod('handle');
     }
 
-    public function isListener()
+    public function isListener(): bool
     {
         return $this->inDir('Listeners') && $this->class->hasMethod('handle');
     }
 
-    public function isMailable()
+    public function isMailable(): bool
     {
         return $this->inheritsFrom(\Illuminate\Mail\Mailable::class);
     }
 
-    public function isMiddleware()
+    public function isMiddleware(): bool
     {
         return $this->inDir('Middleware') && $this->class->hasMethod('handle');
     }
 
-    public function isModel()
+    public function isModel(): bool
     {
         return $this->inheritsFrom(\Illuminate\Database\Eloquent\Model::class);
     }
 
-    public function isNotification()
+    public function isNotification(): bool
     {
         return $this->inheritsFrom(\Illuminate\Notifications\Notification::class);
     }
 
-    public function isProvider()
+    public function isProvider(): bool
     {
         return $this->inheritsFrom(\Illuminate\Support\ServiceProvider::class);
     }
 
-    public function isResource()
+    public function isResource(): bool
     {
         return $this->inheritsFrom(\Illuminate\Http\Resources\Json\JsonResource::class);
     }
