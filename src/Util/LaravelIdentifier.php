@@ -37,8 +37,8 @@ class LaravelIdentifier
         $basePath = getcwd();
 
         $fqcn = str_replace(
-            [...array_values($psr4), $basePath, '.php', '/'],
-            [...array_keys($psr4), '', '', '\\'],
+            [...array_values($psr4), $basePath, '.php', '/', '\\\\'],
+            [...array_keys($psr4), '', '', '\\', '\\'],
             $file->getPathname()
         );
 
