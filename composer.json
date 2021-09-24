@@ -2,7 +2,7 @@
     "name": "liveintent/php-cs-fixer",
     "description": "LiveIntent code style rules for php-cs-fixer",
     "keywords": [
-        ":LiveIntent",
+        "LiveIntent",
         "php-cs-fixer"
     ],
     "homepage": "https://github.com/liveintent/php-cs-fixer",
@@ -13,7 +13,6 @@
         "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
-        "brianium/paratest": "^6.2",
         "nunomaduro/collision": "^5.3",
         "phpunit/phpunit": "^9.3",
         "spatie/phpunit-watcher": "^1.23",
@@ -32,7 +31,7 @@
     "scripts": {
         "lint": "vendor/bin/php-cs-fixer fix --allow-risky=yes",
         "psalm": "vendor/bin/psalm",
-        "test": "./vendor/bin/testbench package:test --parallel --no-coverage",
+        "test": "vendor/bin/phpunit",
         "test-watch": "vendor/bin/phpunit-watcher watch",
         "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
     },
