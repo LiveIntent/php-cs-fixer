@@ -165,6 +165,11 @@ class LaravelIdentifier
         return $this->inheritsFrom(\Illuminate\Support\ServiceProvider::class);
     }
 
+    public function isResourceCollection(): bool
+    {
+        return $this->inheritsFrom(\Illuminate\Http\Resources\Json\ResourceCollection::class);
+    }
+
     public function isResource(): bool
     {
         return $this->inheritsFrom(\Illuminate\Http\Resources\Json\JsonResource::class);

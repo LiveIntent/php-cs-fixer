@@ -34,6 +34,7 @@ class ClassSuffixFixer extends AbstractFixer
         'notification' => 'Notification',
         'provider' => 'ServiceProvider',
         'resource' => 'Resource',
+        'resource_collection' => 'Resource',
     ];
 
     /**

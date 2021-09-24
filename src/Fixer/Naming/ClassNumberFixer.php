@@ -25,7 +25,7 @@ class ClassNumberFixer extends AbstractFixer
         'form_request' => 'singular',
         'model' => 'singular',
         'resource' => 'singular',
-        'table' => 'plural',
+        'resource_collection' => 'plural',
     ];
 
     /**
