@@ -1,11 +1,11 @@
 {
-    "name": "vendor_slug/package_slug",
-    "description": ":package_description",
+    "name": "liveintent/php-cs-fixer",
+    "description": "LiveIntent code style rules for php-cs-fixer",
     "keywords": [
-        ":vendor_name",
-        ":package_slug"
+        ":LiveIntent",
+        "php-cs-fixer"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/liveintent/php-cs-fixer",
     "require": {
         "php": "^8.0",
         "spatie/laravel-package-tools": "^1.4.3"
@@ -20,12 +20,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/"
+            "LiveIntent\\PhpCsFixer\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "LiveIntent\\PhpCsFixer\\Tests\\": "tests/"
         }
     },
     "scripts": {

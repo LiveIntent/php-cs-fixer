@@ -1,6 +1,6 @@
 <?php
 
-namespace VendorName\Skeleton\Tests;
+namespace LiveIntent\PhpCsFixer\Tests;
 
 use PHPUnit\Framework\TestCase;
 
