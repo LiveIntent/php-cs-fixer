@@ -11,29 +11,21 @@ use PhpCsFixer\FixerDefinition\FixerDefinition;
 use LiveIntent\PhpCsFixer\Util\LaravelIdentifier;
 use PhpCsFixer\FixerDefinition\FixerDefinitionInterface;
 
-class ClassSuffixFixer extends AbstractFixer
+class ClassNumberFixer extends AbstractFixer
 {
     /**
-     * Mapping of laravel components to their expected suffix. Null
-     * values indicate that the class should _not_ be suffixed.
+     * Mapping of laravel components to their expected class number.
      *
      * @var array
      */
-    public const SUFFIXES = [
-        'command' => 'Command',
-        'controller' => 'Controller',
-        'event' => null,
-        'exception' => 'Exception',
-        'factory' => 'Factory',
-        'form_request' => 'Request',
-        'job' => 'Job',
-        'listener' => 'Listener',
-        'mailable' => 'Mail',
-        'middleware' => null,
-        'model' => null,
-        'notification' => 'Notification',
-        'provider' => 'ServiceProvider',
-        'resource' => 'Resource',
+    public const NUMBERS = [
+        'command' => 'singular',
+        'controller' => 'singular',
+        'factory' => 'singular',
+        'form_request' => 'singular',
+        'model' => 'singular',
+        'resource' => 'singular',
+        'table' => 'plural',
     ];
 
     /**
@@ -69,14 +61,18 @@ class ClassSuffixFixer extends AbstractFixer
             return;
         }
 
-        $suffix = static::SUFFIXES[$component];
+        if (! $number = static::NUMBERS[$component] ?? null) {
+            return;
+        }
+
+        $suffix = ClassSuffixFixer::SUFFIXES[$component] ?? '';
         [$classNameToken, $classNameTokenIndex] = $this->findClassNameToken($tokens);
 
-        $adjusted = $suffix
-            ? Str::finish($classNameToken->getContent(), $suffix)
-            : Str::beforeLast($classNameToken->getContent(), Str::studly($component));
+        $subject = Str::beforeLast($classNameToken->getContent(), $suffix);
 
-        $tokens[$classNameTokenIndex] = new Token($adjusted);
+        $adjusted = $number === 'singular' ? Str::singular($subject) : Str::plural($subject);
+
+        $tokens[$classNameTokenIndex] = new Token($adjusted.$suffix);
     }
 
     /**
@@ -85,7 +81,7 @@ class ClassSuffixFixer extends AbstractFixer
     public function getDefinition(): FixerDefinitionInterface
     {
         return new FixerDefinition(
-            'Enforce classes are properly suffixed.',
+            'Enforce class names use the proper grammatical number.',
             [],
             null,
             'Renames classes and cannot rename the files or references. You might need to do additional manual fixing.'

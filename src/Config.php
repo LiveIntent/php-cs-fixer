@@ -18,6 +18,7 @@ class Config extends BaseConfig
 
         $this->registerCustomFixers([
             new \LiveIntent\PhpCsFixer\Fixer\Naming\ClassSuffixFixer(),
+            new \LiveIntent\PhpCsFixer\Fixer\Naming\ClassNumberFixer(),
         ]);
 
         $this->setRules(

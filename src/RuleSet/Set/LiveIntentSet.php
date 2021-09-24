@@ -44,6 +44,7 @@ class LiveIntentSet extends AbstractRuleSetDescription
              * Custom rules...
              */
              'LiveIntent/class_suffix' => true,
+             'LiveIntent/class_number' => true,
         ];
     }
 }
