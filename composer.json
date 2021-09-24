@@ -8,11 +8,12 @@
     "homepage": "https://github.com/liveintent/php-cs-fixer",
     "require": {
         "php": "^8.0",
+        "friendsofphp/php-cs-fixer": "^3.1",
+        "laravel/framework": "^8.61",
         "spatie/laravel-package-tools": "^1.4.3"
     },
     "require-dev": {
         "brianium/paratest": "^6.2",
-        "liveintent/php-cs-fixer": "@dev",
         "nunomaduro/collision": "^5.3",
         "phpunit/phpunit": "^9.3",
         "spatie/phpunit-watcher": "^1.23",
@@ -39,14 +40,5 @@
         "sort-packages": true
     },
     "minimum-stability": "dev",
-    "prefer-stable": true,
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../php-cs-fixer",
-            "options": {
-                "symlink": true
-            }
-        }
-    ]
+    "prefer-stable": true
 }
