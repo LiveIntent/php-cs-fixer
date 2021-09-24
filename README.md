@@ -1,4 +1,4 @@
-# LiveIntent code style rules for php-cs-fixer
+# 🍂 LiveIntent PHP code style rules
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/liveintent/php-cs-fixer.svg?style=flat-square)](https://packagist.org/packages/liveintent/php-cs-fixer)
 [![GitHub Tests Action Status](https://img.shields.io/github/workflow/status/liveintent/php-cs-fixer/run-tests?label=tests)](https://github.com/liveintent/php-cs-fixer/actions?query=workflow%3Arun-tests+branch%3Amain)
@@ -17,10 +17,24 @@ composer require liveintent/php-cs-fixer
 
 ## Usage
 
+Create a `.php-cs-fixer.dist.php` file at the root of your project with the following contents:
+
 ```php
-$package = new LiveIntent\PhpCsFixer();
-echo $package->echoPhrase('Hello, LiveIntent!');
+<?php
+
+$finder = Symfony\Component\Finder\Finder::create()
+    ->in([
+        __DIR__ . '/src',
+        __DIR__ . '/tests',
+    ])
+    ->name('*.php')
+    ->ignoreDotFiles(true)
+    ->ignoreVCS(true);
+
+return (new LiveIntent\PhpCsFixer\Config())->setFinder($finder);
 ```
+
+Adjust the folders to analyze as needed.
 
 ## Development
 
@@ -66,7 +80,7 @@ composer test-watch
 
 ## Linting
 
-The installed linter will auto-format your code to comply with our agreed [php coding standard](https://github.com/LiveIntent/php-cs-rules/blob/master/rules.php).
+The installed linter will auto-format your code.
 
 You can run it via:
 

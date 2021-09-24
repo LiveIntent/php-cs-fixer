@@ -1,6 +1,9 @@
 name: run-lint
 
-on: pull_request
+on:
+  push:
+    paths:
+      - '**.php'
 
 jobs:
   php-cs-fixer:
