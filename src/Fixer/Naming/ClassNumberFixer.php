@@ -100,8 +100,10 @@ class ClassNumberFixer extends AbstractFixer
 
     /**
      * Get the token representing the name of the class.
+     *
+     * @return array|null
      */
-    protected function findClassNameToken(Tokens $tokens): array|null
+    protected function findClassNameToken(Tokens $tokens)
     {
         foreach ($tokens as $index => $token) {
             if ($token->isGivenKind(T_CLASS)) {

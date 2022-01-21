@@ -49,8 +49,10 @@ class LaravelIdentifier
 
     /**
      * Identify the Laravel component in the analyzed file.
+     *
+     * @return string|null
      */
-    public static function identify(\SplFileInfo $file): string|null
+    public static function identify(\SplFileInfo $file)
     {
         $instance = new static($file);
 
