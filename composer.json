@@ -7,7 +7,7 @@
     ],
     "homepage": "https://github.com/liveintent/php-cs-fixer",
     "require": {
-        "php": "^8.0",
+        "php": "^7.3|^8.0",
         "friendsofphp/php-cs-fixer": "^3.1",
         "laravel/framework": "^8.61",
         "spatie/laravel-package-tools": "^1.4.3"
