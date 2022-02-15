@@ -5,7 +5,7 @@
 [![GitHub Code Style Action Status](https://img.shields.io/github/workflow/status/liveintent/php-cs-fixer/run-lint?label=code%20style)](https://github.com/liveintent/php-cs-fixer/actions?query=workflow%3Arun-lint+branch%3Amain)
 [![Total Downloads](https://img.shields.io/packagist/dt/liveintent/php-cs-fixer.svg?style=flat-square)](https://packagist.org/packages/liveintent/php-cs-fixer)
 
-This is where your description should go.
+This package contains a code style linter for LiveIntent PHP projects. Under the hood it simply wraps [php-cs-fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer), configures it with our agreed rule set, and adds some of our own custom rules.
 
 ## Installation
 
@@ -49,12 +49,6 @@ You can run the tests via:
 
 ```sh
 composer test
-```
-
-Additionally, you may run the tests in 'watch' mode via:
-
-```sh
-composer test-watch
 ```
 
 ## Linting
